@@ -20,9 +20,11 @@ export default function Header() {
 
   return (
     <header>
-      <nav>
+      <nav aria-label="Main navigation">
         <div className="logo-container">
-          <img src={`${process.env.PUBLIC_URL}/assets/Logo.svg`} alt="Little Lemon logo" />
+          <Link to="/" aria-label="Little Lemon home page">
+            <img src={`${process.env.PUBLIC_URL}/assets/Logo.svg`} alt="Little Lemon logo" />
+          </Link>
         </div>
         <button 
           className="hamburger-menu"
@@ -42,10 +44,17 @@ export default function Header() {
             aria-hidden="true"
           />
         )}
-        <ul className={isMenuOpen ? 'nav-menu active' : 'nav-menu'}>
+        <ul className={isMenuOpen ? 'nav-menu active' : 'nav-menu'} role="menubar" aria-label="Main navigation">
           {navigation.map((item) => (
-            <li key={item.name}>
-              <Link to={item.path} onClick={() => setIsMenuOpen(false)}>{item.name}</Link>
+            <li key={item.name} role="none">
+              <Link 
+                to={item.path} 
+                onClick={() => setIsMenuOpen(false)}
+                role="menuitem"
+                aria-label={`Navigate to ${item.name} page`}
+              >
+                {item.name}
+              </Link>
             </li>
           ))}
         </ul>

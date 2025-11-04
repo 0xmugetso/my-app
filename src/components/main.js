@@ -25,25 +25,35 @@ const specials = [
 export default function Main() {
   return (
     <main>
-      <section className="specials-section">
+      <section className="specials-section" aria-labelledby="specials-title">
         <div className="specials-header">
-          <h2 className="specials-title">This weeks specials!</h2>
-          <button className="btn-online-menu">Online Menu</button>
+          <h2 id="specials-title" className="specials-title">This weeks specials!</h2>
+          <button 
+            className="btn-online-menu"
+            aria-label="View our online menu"
+            onClick={() => window.location.href = '/menu'}
+          >
+            Online Menu
+          </button>
         </div>
-        <div className="specials-grid">
+        <div className="specials-grid" role="list">
           {specials.map((special) => (
-            <article key={special.name} className="special-card">
+            <article key={special.name} className="special-card" role="listitem">
               <div className="special-image">
-                <img src={special.image} alt={special.name} />
+                <img src={special.image} alt={`${special.name} dish`} />
               </div>
               <div className="special-content">
                 <div className="special-header">
                   <h3 className="special-name">{special.name}</h3>
-                  <span className="special-price">{special.price}</span>
+                  <span className="special-price" aria-label={`Price: ${special.price}`}>{special.price}</span>
                 </div>
                 <p className="special-description">{special.description}</p>
-                <a href="/order" className="special-delivery">
-                  Order a delivery <span className="delivery-icon">🚚</span>
+                <a 
+                  href="/order" 
+                  className="special-delivery"
+                  aria-label={`Order ${special.name} for delivery`}
+                >
+                  Order a delivery <span className="delivery-icon" aria-hidden="true">🚚</span>
                 </a>
               </div>
             </article>

@@ -5,9 +5,9 @@ import './style.css';
 export default function BookingPage({ availableTimes, dispatch, submitForm }) {
   return (
     <main className="booking-page">
-      <section className="booking-section">
+      <section className="booking-section" aria-labelledby="booking-title">
         <div className="booking-container">
-          <h1 className="booking-title">Reserve a Table</h1>
+          <h1 id="booking-title" className="booking-title">Reserve a Table</h1>
           <BookingForm 
             availableTimes={availableTimes} 
             dispatch={dispatch} 

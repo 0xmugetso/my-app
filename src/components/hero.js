@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './style.css';
 
 export default function Hero() {
@@ -11,7 +12,7 @@ export default function Hero() {
           <p className="hero-description">
             We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.
           </p>
-          <button className="btn-reserve">Reserve a Table</button>
+          <Link to="/reservations" className="btn-reserve">Reserve a Table</Link>
         </div>
         <div className="hero-image">
           <img src={`${process.env.PUBLIC_URL}/assets/restauranfood.jpg`} alt="Chef serving Mediterranean food" />

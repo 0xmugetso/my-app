@@ -1,0 +1,23 @@
+import React from 'react';
+import './style.css';
+
+export default function Hero() {
+  return (
+    <section className="hero">
+      <div className="hero-content">
+        <div className="hero-text">
+          <h1 className="hero-title">Little Lemon</h1>
+          <h2 className="hero-subtitle">Chicago</h2>
+          <p className="hero-description">
+            We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.
+          </p>
+          <button className="btn-reserve">Reserve a Table</button>
+        </div>
+        <div className="hero-image">
+          <img src={`${process.env.PUBLIC_URL}/assets/restauranfood.jpg`} alt="Chef serving Mediterranean food" />
+        </div>
+      </div>
+    </section>
+  );
+}
+
